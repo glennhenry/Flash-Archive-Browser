@@ -1,0 +1,25 @@
+{
+  "name": "flash-archive-browser",
+  "version": "1.0.0",
+  "description": "Flash archive browser",
+  "license": "ISC",
+  "author": "glennhenry",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package:win32": "electron-packager . \"Flash Archive Browser\" --platform=win32 --arch=ia32 --out=release --overwrite --asar --icon=resources/logo.ico --extra-resource=resources/pepflashplayer32.dll --extra-resource=auto-capture-patched.txt",
+    "package:win64": "electron-packager . \"Flash Archive Browser\" --platform=win32 --arch=x64 --out=release --overwrite --asar --icon=resources/logo.ico --extra-resource=resources/pepflashplayer64.dll --extra-resource=auto-capture-patched.txt",
+    "package:mac:x64": "electron-packager . \"Flash Archive Browser\" --platform=darwin --arch=x64 --out=release --overwrite --asar --icon=resources/logo.icns --extra-resource=resources/PepperFlashPlayer.plugin --extra-resource=auto-capture-patched.txt",
+    "package:mac:arm64": "electron-packager . \"Flash Archive Browser\" --platform=darwin --arch=arm64 --out=release --overwrite --asar --icon=resources/logo.icns --extra-resource=resources/PepperFlashPlayer.plugin --extra-resource=auto-capture-patched.txt",
+    "package:linux": "electron-packager . \"Flash Archive Browser\" --platform=linux --arch=x64 --out=release --overwrite --asar --icon=resources/logo.png --extra-resources=resources/libpepflashplayer.so --extra-resource=auto-capture-patched.txt"
+  },
+  "devDependencies": {
+    "@electron/packager": "^18.4.4",
+    "electron": "^11.5.0"
+  },
+  "dependencies": {
+    "sanitize-filename": "^1.6.3"
+  }
+}

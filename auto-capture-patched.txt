@@ -1,0 +1,127 @@
+THIS VERSION OF BROWSER IS PATCHED WITH AUTO-CAPTURE SYSTEM
+
+The auto-capture is a feature that allows to save resources
+from websites directly to their local storage. This feature
+captures all elements required to display a webpage,
+including images and scripts.
+
+For example, opening a flash game allow user to capture the
+entire webpage, including all associated assets downloaded
+by the Flash client. For instance, if the Flash client
+requests game assets from an external domain, those assets
+will also be saved locally.
+
+DETAILS
+
+The auto-capture system only captures responses from GET
+requests and only saves URLs that match the whitelist
+criteria. Previously downloaded files will not be saved
+again unless permitted by your overwrite settings.
+
+The capture is done by making double request to the site,
+where the first is the browser's internal request, and the
+second is the system custom request that save resources
+with a write file stream.
+
+USAGE
+
+The browser will start capturing after it is enabled via
+the capture menu bar.
+
+You can modify its behavior: which URLs should be captured
+and the overwrite mode.
+
+Create a file named "whitelist.txt" that defines which URLs
+should be captured.
+
+Rules:
+- One rule per line
+- Lines starting with "#" are ignored
+- A line with "*" captures everything
+- A line starting with "!" blocks URLs containing that word
+- A normal word allows URLs containing that word
+- Block rules ("!") always override allow rules
+
+Example:
+
+swf
+*
+!ads
+game
+
+This tells the auto-capture to download every resources
+(not only exclusive to "swf" and "game" because of the "*");
+But, any URL that contains the word "ads" will be excluded.
+
+Select from several overwrite options for handling files
+that the browser loads multiple times:
+
+- Never overwrite
+- Always overwrite every 1 week
+- Always overwrite every 1 month
+- Always overwrite
+
+You can set default capture system behavior by creating a
+file named "capture.cfg."
+
+Each setting uses the format "key=value". Lines starting
+with "#" are ignored.
+
+Available settings:
+- "captureOnStart":
+    - 1 = start capturing automatically when the app opens.
+    - 0 = don't start automatically.
+    - Default: 0.
+- "overwriteMode":
+    - 1-4, corresponds to the four overwrite options above.
+    - Default: 1.
+- "disableLogs":
+	- 1 = disable capture logging
+	- 2 = enable capture logging (output in "logs" directory)
+	- Default: 1.
+
+Example:
+
+captureOnStart=1
+overwriteMode=0
+
+RESULT
+
+Captured resources will maintain the original URL structure
+as a directory hierarchy, omitting any invalid characters
+for the file system (i.e., query symbols will be excluded).
+URLs without file extensions will be saved as index.html.
+
+It will also produce "capture-log-[timestamp].txt" for each
+capture session (created whenever capturing is stopped
+or the browser is closed). This log contains the list of
+resource the browser loaded, including the status of whether
+it is captured or not.
+
+Capture log can be seen directly from the log file, or from
+terminal by running the app from terminal itself.
+
+There are five kinds of capture status:
+
+- Saved (new file)
+- Ignored (already in disk)
+- Ignored (not in whitelist)
+- Error (request/write/capture) [with the error message]
+
+ADVANTAGES & DISADVANTAGES
+
+The similar functionality can be achieved from the browser's
+devtools, and network capture is converted into a HAR file.
+
++ No need to manually record each session with devtools.
++ No data lost because devtools sometimes ignore files.
++ No potential HAR capture lost when session is abruptly
+interupted.
++ File saved directly to disk, without needing to manually
+extract HAR
++ Efficient disk usage since no duplicate files are saved,
+unlike HAR which may contain duplicate entries
++ No need to keep track or manually overwrite different
+version of files
+- Slightly lag after using it for a while
+- No interactive UI to see the downloaded list, only log file
