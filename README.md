@@ -1,5 +1,7 @@
 # Flash Archive Browser
 
+![Image](resources/logo.png)
+
 A browser dedicated for archival purposes. It has the “auto-capture” feature that allows you to save resources from websites directly to local storage. This feature captures all elements required to display a webpage, including images and scripts.
 
 This browser supports Flash content.
@@ -8,11 +10,11 @@ Made with Electron.
 
 Downloads:
 
-- Download for Windows 32-bit: [113 MB]()
-- Download for Windows 64-bit: [131 MB]()
-- Download for macOS ARM 64: [330 MB]()
-- Download for macOS 64-bit: [340 MB]()
-- Download for Linux 64-bit: [111 MB]()
+- Download for Windows 32-bit: [118 MB](https://github.com/glennhenry/Flash-Archive-Browser/releases/download/v1.0.0/Flash.Archive.Browser-windows-32bit.zip)
+- Download for Windows 64-bit: [126 MB](https://github.com/glennhenry/Flash-Archive-Browser/releases/download/v1.0.0/Flash.Archive.Browser-windows-64bit.zip)
+- Download for macOS ARM 64: [279 MB](https://github.com/glennhenry/Flash-Archive-Browser/releases/download/v1.0.0/Flash.Archive.Browser-macos-arm64.zip)
+- Download for macOS 64-bit: [271 MB](https://github.com/glennhenry/Flash-Archive-Browser/releases/download/v1.0.0/Flash.Archive.Browser-macos-x64.zip)
+- Download for Linux 64-bit: [111 MB](https://github.com/glennhenry/Flash-Archive-Browser/releases/download/v1.0.0/Flash.Archive.Browser-linux-64bit.zip)
 
 ## Details
 
