@@ -28,7 +28,7 @@ The capture is done by making double request to the site, where the first is the
 - Logs are produced to the `logs` directory.
 - `output` directory is the auto-capture output.
 
-You can also run the browser from terminal (e.g., `.\"Archive Browser.exe"` in windows bat) to see the live log.
+You can also run the browser from terminal (e.g., `.\"Flash Archive Browser.exe"` in windows bat) to see the live log.
 
 ### Configs
 
